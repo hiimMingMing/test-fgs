@@ -1,0 +1,30 @@
+{
+  "__version__": "1.0.4",
+  "general": {
+    "designResolution": {
+      "width": 750,
+      "height": 1624,
+      "fitHeight": true,
+      "fitWidth": false
+    }
+  },
+  "physics": {
+    "collisionMatrix": {
+      "0": 3,
+      "1": 3
+    },
+    "collisionGroups": [
+      {
+        "index": 1,
+        "name": "Player"
+      }
+    ],
+    "allowSleep": false,
+    "maxSubSteps": 666
+  },
+  "fbx": {
+    "legacyFbxImporter": {
+      "visible": true
+    }
+  }
+}

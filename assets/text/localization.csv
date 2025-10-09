@@ -1,0 +1,96 @@
+::ID::,::EN::,::MM::
+HOME_USER_INFO,User {0} win {1}!,အသုံးပြုသူ {0} သည် {1} အနိုင်ရ!
+HOME_JACKPOT_HEADER,THIS WEEK JACKPOT,ဒီအပတ် ဂျက်ပို့
+HOME_JACKFRUIT_LABEL,Your Jackfruit:,သင်၏ မြန်မာသစ်သီး:
+HOME_SEE_RANK_LINK,See rank,အဆင့်ကြည့်ရန်
+HOME_PLAY_BUTTON, Play ,ကစားရန်
+HOME_TUTORIAL_BUTTON,Tutorial,လေ့ကျင့်ခန်း
+HOME_LANGUAGE_SELECTOR,En,မြန်မာ
+STORE_TITLE,Store,စတိုး
+LEADERBOARD_TITLE,LEADERBOARD,အဆင့်စာရင်း
+LEADERBOARD_JACKPOT,THIS WEEK JACKPOT, ဒီအပတ် ဂျက်ပို့ 
+LEADERBOARD_THIS_WEEK,This week,ဒီအပတ်
+LEADERBOARD_TIMER,{0} left,{0} ကျန်တော့သည်
+LEADERBOARD_RANK_HEADER,Rank,အဆင့်
+LEADERBOARD_USER_HEADER,User,အသုံးပြုသူ
+LEADERBOARD_PRIZE_HEADER,Prize Ks,ဆုငွေ ကျပ်
+LEADERBOARD_GAMES_HEADER,Games,ဂိမ်းများ
+LEADERBOARD_YOUR_RANK,Your Rank,သင်၏အဆင့်
+LEADERBOARD_WEEK,Week,နောက်တစ်ခု
+LEADERBOARD_ENDED_DATE,Ended {0},ပြီးဆုံးသည် {0}
+HISTORY_TITLE,HISTORY,မှတ်တမ်း
+GUIDE_TITLE,GUIDE,လမ်းညွှန်
+POPUP_CONFIRM_TITLE,Confirmation,အတည်ပြုခြင်း
+POPUP_CONFIRM_MESSAGE,"Confirm to purchase 
+This package?","ဒီအကွက်ကို ဝယ်တော့မလား
+အတည်ပြုပါ?"
+POPUP_CONFIRM_BUTTON,Confirm,အတည်ပြုရန်
+POPUP_CONFIRM_NO_BUTTON,No,မလုပ်ပါ
+POPUP_NOTICE_TITLE,Successfully,အောင်မြင်စွာ
+POPUP_NOTICE_MESSAGE,"You have purchased
+Successfully!","သင်သည် အောင်မြင်စွာ
+ဝယ်ယူပြီးပါပြီ!"
+POPUP_NOTICE_OK_BUTTON,Confirm,အတည်ပြုရန်
+POPUP_OUT_ENERGY_TITLE,"Oops, no Energy left.",အင်းး၊ စွမ်းအင်မရှိတော့ဘူး။
+POPUP_OUT_ENERGY_MESSAGE,Go to STORE and refill now!,စတိုးကိုသွားပြီး ဖြည့်တင်းလိုက်ပါ!
+POPUP_OUT_ENERGY_GOTO_BUTTON,Goto Store,စတိုးသွားရန်
+POPUP_OUT_ENERGY_NO_BUTTON,No,မလုပ်ပါ
+POPUP_RETURN_TITLE,Return,ပြန်သွားရန်
+POPUP_RETURN_MESSAGE,Confirm to return to MyID?,MyID သို့ပြန်သွားတော့မလား?
+POPUP_RETURN_YES_BUTTON,Yes,လုပ်မည်
+POPUP_RETURN_NO_BUTTON,No,မလုပ်ပါ
+GAME_HEADER_RESET_LABEL,Reset in,ပြန်လည်စတင်ရန် ကျန်ချိန်
+GAME_FOOTER_HOME,Home,ပင်မစာမျက်နှာ
+GAME_FOOTER_STORE,Store,စတိုး
+GAME_FOOTER_RANK,Rank,အဆင့်
+GAME_FOOTER_GUIDE,Guide,လမ်းညွှန်
+GAME_FOOTER_HISTORY,History,မှတ်တမ်း
+TUTORIAL_CONTINUE,Tap to continue {0},ဆက်လုပ်ရန် နှိပ်ပါ {0}
+TUTORIAL_AIM_DRAG,"Drag to Aim.
+Release to drop","ပစ်မှတ်ထားရန် ဆွဲပါ။
+ကျစေရန် လွှတ်ပါ"
+TUTORIAL_MERGE_SAME,Merge same ones to get larger ball,"ပိုကြီးတဲ့ဘောကို ရဖို့ 
+တူညီတဲ့ဘောတွေကို ပေါင်းပါ"
+TUTORIAL_MAX_PRIZES,Get max 5 prizes if you merge the largest fruit,အကြီးဆုံးသစ်သီးကို ပေါင်းလိုက်ရင် ဆု ၅ ခုအထိ ရနိုင်ပါတယ်
+TUTORIAL_COLLECT_JACKFRUIT,Collect Jackfruits to win Leaderboard,အဆင့်စာရင်းမှာ အနိုင်ရဖို့ မြန်မာသစ်သီးတွေကို စုဆောင်းပါ
+TUTORIAL_GIFTS_REVEALED,Gifts are revealed when game is over!,"ဂိမ်းပြီးရင် 
+လက်ဆောင်တွေကို ဖော်ပြပါလိမ့်မယ်!"
+TUTORIAL_POWERUPS_WISE,"Use Powerups when needed, but be wise!","လိုအပ်ချိန်မှာ ပါဝါအပ်တွေကို သုံးပါ၊ 
+ဒါပေမယ့် စဉ်းစားပြီး သုံးပါ!"
+TUTORIAL_BOOSTERS_HOW,How to use Boosters,ဘူစတာတွေကို ဘယ်လို သုံးရမလဲ
+TUTORIAL_SKIP,Skip tutorial,လေ့ကျင့်ခန်းကို ကျော်ရန်
+GAME_POSSIBLE_PRIZES,Possible Prizes,ဖြစ်နိုင်တဲ့ ဆုများ
+GAME_PRIZE_DATA,Data,ဒေတာ
+GAME_PRIZE_DIAMOND,Diamond,စိန်
+GAME_PRIZE_LOYALTY,"Loyalty
+Points",သစ္စာရှိမှု\nအမှတ်များ
+GAME_PRIZE_MIX,Mix,ရောစပ်ရန်
+GAME_PRIZE_HAMMER,Hammer,တူ
+GAME_PRIZE_BOOSTER,Booster,ဘူစတာ
+POWERUP_HAMMER_TITLE,Hammer,တူ
+POWERUP_HAMMER_DESC,Destroy a fruit of your choice!,သင့်ရွေးချယ်တဲ့ သစ်သီးကို ဖျက်ပါ!
+POWERUP_HAMMER_LIMIT,Max use: 3 per game,တစ်ဂိမ်းလျှင် အများဆုံး ၃ ကြိမ်သုံးရန်
+POWERUP_MIX_TITLE,Mix,ရောစပ်ရန်
+POWERUP_MIX_DESC,Upgrade a fruit of your choice!,သင့်ရွေးချယ်တဲ့ သစ်သီးကို အဆင့်မြှင့်ပါ!
+POWERUP_MIX_LIMIT,Max use: 1 per game,တစ်ဂိမ်းလျှင် အများဆုံး ၁ ကြိမ်သုံးရန်
+GAME_RESULT_BEST_BALL,Your best Ball is {0},သင့်အကောင်းဆုံး ဘောလုံးက {0}
+GAME_RESULT_YOU_WON,You won,သင်အနိုင်ရပါပြီ
+GAME_RESULT_PLAY_AGAIN,Play again,ထပ်ကစားရန်
+GAME_RESULT_AVAILABLE,Available,အသုံးပြုနိုင်သည်
+GAME_RESULT_CAN_USE,Can use,သုံးနိုင်သည်
+GAME_RESULT_NEXT,Next,နောက်တစ်ခု
+TS_WEEK_FINISHED,Week Finished,အပတ်ပြီးပါပြီ
+TS_INVALID_DATE,Invalid date,မမှန်ကန်သော ရက်စွဲ
+TS_LOADING_WINNERS,Loading recent winners...,မကြာသေးခင်က အနိုင်ရသူများကို ဖော်ပြနေသည်...
+TS_LEADERBOARD,"Top 10 weekly players who collect the most Jackfruits by 
+Playing more Games will get 100,000Ks each ","အမှတ်စဉ် ၁ မှ ၁၀ အထိ ကစားသမားများကို အပတ်စဉ်
+ဆုကြေး ကျပ် (၁) သိန်းချီးမြှင့်ပါမည်။ "
+POPUP_RETURN_HOME_MESSAGE,Are you sure want to exit?,ထွက်ချင်တာ သေချာပြီလား?
+LEADERBOARD_AGO,ago,အကြာက
+LEADERBOARD_CURRENT,Current,လက်ရှိ
+POPUP_DAILY_TITLE,DAILY LOGIN,နေ့တိုင်း Login
+POPUP_DAILY_MESSAGE,"Nice, you've received 2 Energies 
+For logging in today!","ဟူရေ! Login ဝင်တာနဲ့ Energies 
+၂ လုံး ပိုင်ဆိုင်လိုက်ပြီ!"
+POWERUP_MIX_TUTOR,Choose your fruit to use upgrade ,
+POWERUP_HAMMER_TUTOR,Choose your fruit to use hamer ,

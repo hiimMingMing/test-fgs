@@ -1,0 +1,3 @@
+[submodule "assets/scripts/core"]
+	path = assets/scripts/core
+	url = https://git.gameloft.org/g4b-in-app-production/cocos-creator/core-modules.git

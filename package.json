@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "@fingerprintjs/fingerprintjs": "^3.3.0",
+    "@types/ramda": "^0.28.25",
+    "csv-parser": "^3.2.0",
+    "fingerprintjs": "^0.5.3",
+    "lodash": "^4.17.21",
+    "ramda": "^0.28.0",
+    "xlsx": "^0.18.5"
+  },
+  "name": "minigame-template",
+  "type": "3d",
+  "uuid": "fdcbb974-b9a6-403e-a1e9-97b3545fab66",
+  "version": "3.1.2",
+  "creator": {
+    "version": "3.7.4"
+  }
+}
