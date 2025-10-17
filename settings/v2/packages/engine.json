@@ -146,6 +146,8 @@
     "flags": {}
   },
   "macroConfig": {
-    "ENABLE_TRANSPARENT_CANVAS": true
+    "ENABLE_TRANSPARENT_CANVAS": true,
+    "ENABLE_ANTIALIAS_FXAA": true,
+    "ENABLE_BLOOM": true
   }
 }
