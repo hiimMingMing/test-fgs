@@ -2,8 +2,8 @@
   "__version__": "1.0.4",
   "general": {
     "designResolution": {
-      "width": 1920,
-      "height": 1920,
+      "width": 1024,
+      "height": 1024,
       "fitHeight": true,
       "fitWidth": true
     }
@@ -11,11 +11,12 @@
   "physics": {
     "collisionMatrix": {
       "0": 3,
-      "1": 45,
-      "2": 18,
-      "3": 18,
-      "4": 12,
-      "5": 2
+      "1": 109,
+      "2": 82,
+      "3": 82,
+      "4": 76,
+      "5": 66,
+      "6": 62
     },
     "collisionGroups": [
       {
@@ -37,6 +38,10 @@
       {
         "index": 5,
         "name": "EnemyProjectile"
+      },
+      {
+        "index": 6,
+        "name": "Boundary"
       }
     ],
     "allowSleep": false,
