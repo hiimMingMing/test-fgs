@@ -1,19 +1,26 @@
 import { _decorator, Component, Node, RigidBody2D, Vec2, Vec3 } from 'cc';
-import { CharacterInput } from '../Input/CharacterInput';
-const { ccclass, property } = _decorator;
+import { CharacterInput } from './CharacterInput';
+import { CharacterDefines } from '../Config/GameDefine';
+import { CharacterStats } from './CharacterStats';
 
-@ccclass('PlayerMovement')
-export class PlayerMovement extends Component {
-    @property
-    moveSpeed: number = 5;
+const { ccclass, property, requireComponent } = _decorator;
 
+@ccclass('CharacterMovement')
+@requireComponent(CharacterStats)
+export class CharacterMovement extends Component {
     @property(CharacterInput)
     characterInput: CharacterInput;
 
     private moveDirection: Vec3;
     private rb: RigidBody2D;
+    private stats: CharacterStats;
+
+    get Stats() {
+        return this.stats;
+    }
 
     protected onLoad(): void {
+        this.stats = this.getComponent(CharacterStats);
         this.moveDirection = this.characterInput.MoveDirection;
         this.rb = this.getComponent(RigidBody2D);
     }
@@ -23,13 +30,15 @@ export class PlayerMovement extends Component {
             if (this.moveDirection.length() > 0) {
                 this.moveDirection.normalize();
                 const movement = this.moveDirection.multiplyScalar(
-                    this.moveSpeed * 5
+                    this.Stats.moveSpeed * this.Stats.dashSpeedMultiplier
                 );
                 this.rb.linearVelocity = new Vec2(movement.x, movement.y);
             }
         } else {
             this.moveDirection.normalize();
-            const movement = this.moveDirection.multiplyScalar(this.moveSpeed);
+            const movement = this.moveDirection.multiplyScalar(
+                this.Stats.moveSpeed
+            );
             this.rb.linearVelocity = new Vec2(movement.x, movement.y);
         }
     }

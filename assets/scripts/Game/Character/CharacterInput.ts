@@ -9,28 +9,38 @@ import {
     Node,
     Vec3,
 } from 'cc';
-import { Keys } from '../../Config/GameConfig';
-import Timer from '../../../core/Timer';
-const { ccclass, property } = _decorator;
+import { Keys } from '../Config/GameConfig';
+import Timer from '../../core/Timer';
+import { CharacterDefines } from '../Config/GameDefine';
+import { CharacterStats } from './CharacterStats';
+
+const { ccclass, property, requireComponent } = _decorator;
 
 @ccclass('CharacterInput')
+@requireComponent(CharacterStats)
 export class CharacterInput extends Component {
-    @property(CCInteger) dashDuration: number = 0.2;
-    @property(CCInteger) dashCooldownDuration: number = 3;
+    protected dashTimer: Timer = new Timer();
+    protected dashCooldownTimer: Timer = new Timer();
 
-    private dashCooldown: Timer = new Timer();
-    private dashTimer: Timer = new Timer();
-    private isDashing: boolean = false;
-    private moveDirection: Vec3 = new Vec3();
+    protected isDashing: boolean = false;
+    public get IsDashing() {
+        return this.isDashing;
+    }
 
-    private keyStates: Map<KeyCode, boolean> = new Map();
-
+    protected moveDirection: Vec3 = new Vec3();
     public get MoveDirection() {
         return this.moveDirection;
     }
 
-    public get IsDashing() {
-        return this.isDashing;
+    protected stats: CharacterStats;
+    get Stats() {
+        return this.stats;
+    }
+
+    protected keyStates: Map<KeyCode, boolean> = new Map();
+
+    protected onLoad(): void {
+        this.stats = this.getComponent(CharacterStats);
     }
 
     start() {
@@ -53,19 +63,19 @@ export class CharacterInput extends Component {
 
     update(deltaTime: number) {
         this.updateDashTimer(deltaTime);
-        this.wasdHandle();
+        this.moveHandle();
         this.dashHandle();
     }
 
     updateDashTimer(deltaTime: number) {
-        this.dashCooldown.Update(deltaTime);
+        this.dashCooldownTimer.Update(deltaTime);
         this.dashTimer.Update(deltaTime);
         if (this.dashTimer.JustFinished()) {
             this.isDashing = false;
         }
     }
 
-    wasdHandle() {
+    moveHandle() {
         if (this.isDashing) return;
 
         this.moveDirection.set(0, 0, 0);
@@ -94,13 +104,13 @@ export class CharacterInput extends Component {
             this.dashTimer.IsDone() == true &&
             (this.keyStates.get(Keys.DASH1) || this.keyStates.get(Keys.DASH1))
         ) {
-            this.dashCooldown.SetDuration(this.dashCooldownDuration);
-            this.dashTimer.SetDuration(this.dashDuration);
+            this.dashCooldownTimer.SetDuration(this.Stats.dashCooldown);
+            this.dashTimer.SetDuration(this.Stats.dashDuration);
             this.isDashing = true; // Dash
         }
     }
 
     canDash() {
-        return this.dashCooldown.IsDone();
+        return this.dashCooldownTimer.IsDone();
     }
 }
