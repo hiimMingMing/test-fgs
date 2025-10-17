@@ -13,8 +13,8 @@ import { Keys } from '../../Config/GameConfig';
 import Timer from '../../../core/Timer';
 const { ccclass, property } = _decorator;
 
-@ccclass('PlayerInput')
-export class PlayerInput extends Component {
+@ccclass('CharacterInput')
+export class CharacterInput extends Component {
     @property(CCInteger) dashDuration: number = 0.2;
     @property(CCInteger) dashCooldownDuration: number = 3;
 

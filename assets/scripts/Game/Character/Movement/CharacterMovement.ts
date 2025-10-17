@@ -1,5 +1,5 @@
 import { _decorator, Component, Node, RigidBody2D, Vec2, Vec3 } from 'cc';
-import { PlayerInput } from '../Input/PlayerInput';
+import { CharacterInput } from '../Input/CharacterInput';
 const { ccclass, property } = _decorator;
 
 @ccclass('PlayerMovement')
@@ -7,19 +7,19 @@ export class PlayerMovement extends Component {
     @property
     moveSpeed: number = 5;
 
-    @property(PlayerInput)
-    playerInput: PlayerInput;
+    @property(CharacterInput)
+    characterInput: CharacterInput;
 
     private moveDirection: Vec3;
     private rb: RigidBody2D;
 
     protected onLoad(): void {
-        this.moveDirection = this.playerInput.MoveDirection;
+        this.moveDirection = this.characterInput.MoveDirection;
         this.rb = this.getComponent(RigidBody2D);
     }
 
     update(deltaTime: number) {
-        if (this.playerInput.IsDashing) {
+        if (this.characterInput.IsDashing) {
             if (this.moveDirection.length() > 0) {
                 this.moveDirection.normalize();
                 const movement = this.moveDirection.multiplyScalar(
