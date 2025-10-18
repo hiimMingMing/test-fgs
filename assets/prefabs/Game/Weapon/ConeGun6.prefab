@@ -1,7 +1,7 @@
 [
   {
     "__type__": "cc.Prefab",
-    "_name": "PlayerGun",
+    "_name": "ConeGun6",
     "_objFlags": 0,
     "_native": "",
     "data": {
@@ -12,7 +12,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "PlayerGun",
+    "_name": "ConeGun6",
     "_objFlags": 0,
     "__editorExtras__": {},
     "_parent": null,
@@ -34,8 +34,8 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 512,
-      "y": 248.53300000000002,
+      "x": 0,
+      "y": 0,
       "z": 0
     },
     "_lrot": {
@@ -86,10 +86,10 @@
   },
   {
     "__type__": "cc.CompPrefabInfo",
-    "fileId": "2ewMFiKldEmp4Ab4IwKqGk"
+    "fileId": "ffFDK4qPlOR77zbdOqpwKc"
   },
   {
-    "__type__": "afd2aCyIwVK46jihcnMO5w3",
+    "__type__": "54ab2PLP11LY70/klTLhNr/",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -99,16 +99,18 @@
     "__prefab": {
       "__id__": 5
     },
-    "range": 400,
-    "fireRate": 450,
+    "range": 2000,
+    "fireRate": 600,
+    "bulletNumber": 6,
+    "threadAngle": 90,
     "_id": ""
   },
   {
     "__type__": "cc.CompPrefabInfo",
-    "fileId": "77QROHKj9HvoEQz7w+E+1j"
+    "fileId": "40sMrShrtPJZf3lROGIVUn"
   },
   {
-    "__type__": "77bce9mRJlLlYmNRPbfHBpQ",
+    "__type__": "460de3u25lB2pv2sDwv5HaX",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -119,15 +121,15 @@
       "__id__": 7
     },
     "bulletPrefab": {
-      "__uuid__": "b11762de-9fda-49cd-a676-6f57d2cc0c99",
+      "__uuid__": "22061132-3f31-4ed6-8d84-147e075b2976",
       "__expectedType__": "cc.Prefab"
     },
-    "ownerType": 0,
+    "ownerType": 1,
     "_id": ""
   },
   {
     "__type__": "cc.CompPrefabInfo",
-    "fileId": "cd3TRm6UxFtbcpzbMbzLN2"
+    "fileId": "f4+AShP1hLerYwJMfoa267"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -137,8 +139,7 @@
     "asset": {
       "__id__": 0
     },
-    "fileId": "56YEjvnCpL27y8JEH8RFbU",
-    "instance": null,
+    "fileId": "05sYPRTEhCFr+u6f6dWLBS",
     "targetOverrides": null
   }
 ]

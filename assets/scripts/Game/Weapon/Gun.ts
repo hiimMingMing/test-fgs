@@ -79,8 +79,10 @@ export class Gun extends Component {
                 ).normalize()
             );
     }
+
     scanTargets() {
         const targets = GameObserver.Instance.getTargetableObjects();
+        console.log(targets);
 
         targets.forEach((target) => {
             if (target.Type === this.ownerType) return;

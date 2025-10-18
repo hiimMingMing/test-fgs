@@ -56,6 +56,7 @@ export class Character extends Component {
     }
 
     protected onLoad(): void {
+        GameObserver.Instance.addtargetableObjects(this);
         this.charStats = this.getComponent(CharacterStats);
 
         if (this.Type == CharacterType.PLAYER) return;
@@ -63,8 +64,6 @@ export class Character extends Component {
         if (collider) {
             collider.on(Contact2DType.STAY_CONTACT, this.onContact, this);
         }
-
-        GameObserver.Instance.addtargetableObjects(this);
     }
 
     protected update(dt: number): void {
