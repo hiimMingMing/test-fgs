@@ -34,6 +34,10 @@ export class CharacterMovement extends Component {
                 this.rb.linearVelocity = new Vec2(movement.x, movement.y);
             }
         } else {
+            if (!this.characterInput.CanMove) {
+                this.rb.linearVelocity = new Vec2(0, 0);
+                return;
+            }
             this.moveDirection.normalize();
             const movement = this.moveDirection.multiplyScalar(
                 this.Stats.moveSpeed

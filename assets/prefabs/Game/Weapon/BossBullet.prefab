@@ -152,7 +152,7 @@
     "__prefab": {
       "__id__": 7
     },
-    "moveSpeed": 10,
+    "moveSpeed": 4,
     "damage": 5,
     "_id": ""
   },

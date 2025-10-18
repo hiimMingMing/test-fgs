@@ -1,7 +1,6 @@
 import {
     _decorator,
     BoxCollider2D,
-    ccenum,
     CCInteger,
     Collider2D,
     Component,
@@ -13,19 +12,8 @@ import { CharacterStats } from './CharacterStats';
 import { CharacterMovement } from './CharacterMovement';
 import Timer from '../../core/Timer';
 import { GameObserver } from '../Observer/GameObserver';
+import { CharacterState, CharacterType } from '../Config/GameDefine';
 const { ccclass, property, requireComponent } = _decorator;
-
-export enum CharacterState {
-    ALIVE,
-    DEAD,
-}
-
-export enum CharacterType {
-    PLAYER,
-    ENEMY,
-}
-
-ccenum(CharacterType);
 
 @ccclass('Character')
 @requireComponent(CharacterStats)

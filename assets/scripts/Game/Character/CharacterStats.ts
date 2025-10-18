@@ -3,6 +3,7 @@ const { ccclass, property } = _decorator;
 
 @ccclass('CharacterStats')
 export class CharacterStats extends Component {
+    @property public maxHP: number = 50;
     @property public hp: number = 50;
     @property public moveSpeed: number = 20;
     @property public dashDuration: number = 0.2;

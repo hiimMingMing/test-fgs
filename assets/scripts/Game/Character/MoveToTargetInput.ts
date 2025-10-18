@@ -18,8 +18,10 @@ export class MoveToTargetInput extends CharacterInput {
     }
     onDestroy(): void {}
 
-    update(deltaTime: number): void {
-        if (this.Target === null || this.Target.isValid == false) {
+    moveHandle(): void {
+        if (this.IsDashing) return;
+
+        if (!this.Target || this.Target.isValid == false) {
             this.moveDirection.set(0, 0, 0);
             return;
         }
@@ -30,4 +32,6 @@ export class MoveToTargetInput extends CharacterInput {
             this.node.worldPosition
         ).normalize();
     }
+
+    dashHandle(): void {}
 }

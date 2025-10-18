@@ -21,6 +21,14 @@ export class CharacterInput extends Component {
     protected dashTimer: Timer = new Timer();
     protected dashCooldownTimer: Timer = new Timer();
 
+    protected canMove: boolean = true;
+    public get CanMove() {
+        return this.canMove;
+    }
+    public set CanMove(v) {
+        this.canMove = v;
+    }
+
     protected isDashing: boolean = false;
     public get IsDashing() {
         return this.isDashing;
@@ -74,7 +82,7 @@ export class CharacterInput extends Component {
         }
     }
 
-    moveHandle() {
+    protected moveHandle() {
         if (this.isDashing) return;
 
         this.moveDirection.set(0, 0, 0);
@@ -96,17 +104,22 @@ export class CharacterInput extends Component {
         }
     }
 
-    dashHandle() {
-        if (this.canDash() === false) return;
-
+    protected dashHandle() {
         if (
             this.dashTimer.IsDone() == true &&
             (this.keyStates.get(Keys.DASH1) || this.keyStates.get(Keys.DASH1))
         ) {
-            this.dashCooldownTimer.SetDuration(this.Stats.dashCooldown);
-            this.dashTimer.SetDuration(this.Stats.dashDuration);
-            this.isDashing = true; // Dash
+            this.dash();
         }
+    }
+
+    public dash(): boolean {
+        if (this.canDash() === false) return false;
+
+        this.dashCooldownTimer.SetDuration(this.Stats.dashCooldown);
+        this.dashTimer.SetDuration(this.Stats.dashDuration);
+        this.isDashing = true; // Dash
+        return true;
     }
 
     canDash() {

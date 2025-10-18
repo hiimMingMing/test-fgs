@@ -12,7 +12,8 @@ import {
     Vec2,
     Vec3,
 } from 'cc';
-import { Character, CharacterType } from '../Character/Character';
+import { Character } from '../Character/Character';
+import { CharacterType } from '../Config/GameDefine';
 import { GunStats } from './GunStats';
 import Timer from '../../core/Timer';
 import { Bullet } from './Bullet';
@@ -82,7 +83,6 @@ export class Gun extends Component {
 
     scanTargets() {
         const targets = GameObserver.Instance.getTargetableObjects();
-        console.log(targets);
 
         targets.forEach((target) => {
             if (target.Type === this.ownerType) return;
