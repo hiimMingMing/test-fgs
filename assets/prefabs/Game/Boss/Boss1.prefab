@@ -190,8 +190,8 @@
       "__uuid__": "48784d53-eeff-47dd-9ae6-fd952581fc4a@f9941",
       "__expectedType__": "cc.SpriteFrame"
     },
-    "_type": 0,
-    "_fillType": 0,
+    "_type": 3,
+    "_fillType": 1,
     "_sizeMode": 0,
     "_fillCenter": {
       "__type__": "cc.Vec2",
@@ -199,7 +199,7 @@
       "y": 0
     },
     "_fillStart": 0,
-    "_fillRange": 0,
+    "_fillRange": 1,
     "_isTrimmedMode": true,
     "_useGrayscale": false,
     "_atlas": null,
@@ -480,7 +480,7 @@
     "node": {
       "__id__": 1
     },
-    "_enabled": false,
+    "_enabled": true,
     "__prefab": {
       "__id__": 27
     },
@@ -495,7 +495,7 @@
       "a": 255
     },
     "_spriteFrame": {
-      "__uuid__": "3ca13c64-d51c-4984-82e6-2850c2a7e2f9@f9941",
+      "__uuid__": "add784f7-9e34-4fde-9011-b1b15ec327ec@f9941",
       "__expectedType__": "cc.SpriteFrame"
     },
     "_type": 0,
@@ -634,7 +634,7 @@
     "maxHP": 600,
     "hp": 600,
     "moveSpeed": 6,
-    "dashDuration": 0.1,
+    "dashDuration": 0.3,
     "dashCooldown": 3,
     "dashSpeedMultiplier": 10,
     "bodySlamDmg": 10,
@@ -658,6 +658,9 @@
       "__id__": 39
     },
     "characterType": 1,
+    "charImage": {
+      "__id__": 5
+    },
     "_id": ""
   },
   {

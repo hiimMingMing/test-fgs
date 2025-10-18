@@ -7,6 +7,7 @@ import {
     Contact2DType,
     IPhysics2DContact,
     Sprite,
+    tween,
 } from 'cc';
 import { CharacterStats } from './CharacterStats';
 import { CharacterMovement } from './CharacterMovement';
@@ -68,6 +69,12 @@ export class Character extends Component {
         if (this.charStats.hp <= 0) {
             this.die();
         }
+
+        this.updateHPVisual();
+    }
+
+    updateHPVisual() {
+        this.charImage.fillRange = this.Stats.hp / this.Stats.maxHP;
     }
 
     public isIframing() {
