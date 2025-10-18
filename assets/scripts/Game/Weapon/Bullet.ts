@@ -16,6 +16,7 @@ import { CharacterStats } from '../Character/CharacterStats';
 import { Character } from '../Character/Character';
 import { FXManager, FXType } from '../FX/FXManager';
 import { BulletImpactFX } from '../FX/BulletImpactFX';
+import { SoundMgr } from '../../core/SoundMgr';
 const { ccclass, property, requireComponent } = _decorator;
 
 @ccclass('Bullet')
@@ -65,16 +66,18 @@ export class Bullet extends Component {
     }
 
     protected hit(): void {
+        SoundMgr.playSfx(SoundMgr.Instance.SFX_IMPACT);
+
         const angle = misc.radiansToDegrees(
             Math.atan2(this.rb.linearVelocity.y, this.rb.linearVelocity.x)
         );
-
         const fx = FXManager.Instance.play(
             FXType.IMPACT,
             this.node.worldPosition,
             angle
         );
         fx.getComponent(BulletImpactFX).setColor(this.image.color);
+
         this.rb.enabled = false;
         this.scheduleOnce(() => {
             this.node.active = false;

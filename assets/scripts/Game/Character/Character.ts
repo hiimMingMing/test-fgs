@@ -17,6 +17,7 @@ import { GameObserver } from '../Observer/GameObserver';
 import { CharacterState, CharacterType } from '../Config/GameDefine';
 import { CameraShake } from '../../core/CameraShake';
 import { GameManager } from '../GameManager';
+import { SoundMgr } from '../../core/SoundMgr';
 const { ccclass, property, requireComponent } = _decorator;
 
 @ccclass('Character')
@@ -78,6 +79,7 @@ export class Character extends Component {
 
         if (this.characterType === CharacterType.PLAYER) {
             CameraShake.Instance.shake(10, 0.2);
+            SoundMgr.playSfx(SoundMgr.Instance.SFX_PLAYER_HIT);
         }
     }
 
