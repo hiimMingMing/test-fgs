@@ -1,0 +1,10 @@
+{
+    "maxHP": 600,
+    "hp": 600,
+    "moveSpeed": 6,
+    "dashDuration": 0.3,
+    "dashCooldown": 3,
+    "dashSpeedMultiplier": 10,
+    "bodySlamDmg": 10,
+    "iframeDuration": 0
+}

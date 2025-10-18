@@ -68,7 +68,6 @@ export class Bullet extends Component {
         const angle = misc.radiansToDegrees(
             Math.atan2(this.rb.linearVelocity.y, this.rb.linearVelocity.x)
         );
-        console.log(angle);
 
         const fx = FXManager.Instance.play(
             FXType.IMPACT,

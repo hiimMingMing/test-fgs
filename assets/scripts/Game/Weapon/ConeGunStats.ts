@@ -6,4 +6,10 @@ const { ccclass, property } = _decorator;
 export class ConeGunStats extends GunStats {
     @property public bulletNumber: number = 8;
     @property public threadAngle: number = 90;
+
+    public loadFromConfig(config: any) {
+        super.loadFromConfig(config);
+        if (config.bulletNumber !== undefined) this.bulletNumber = config.bulletNumber;
+        if (config.threadAngle !== undefined) this.threadAngle = config.threadAngle;
+    }
 }

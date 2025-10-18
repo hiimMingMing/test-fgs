@@ -3,6 +3,7 @@ import {
     BoxCollider2D,
     CCInteger,
     Collider2D,
+    Color,
     Component,
     Contact2DType,
     IPhysics2DContact,
@@ -95,7 +96,7 @@ export class Character extends Component {
     private die() {
         this.state = CharacterState.DEAD;
 
-        this.onDieCallbacks.forEach(cb => cb());
+        this.onDieCallbacks.forEach((cb) => cb());
 
         if (this.characterType === CharacterType.PLAYER)
             GameManager.Instance.end();
@@ -121,5 +122,18 @@ export class Character extends Component {
         if (collider) {
             collider.off(Contact2DType.STAY_CONTACT, this.onContact, this);
         }
+    }
+
+    public changeColor(c: Color) {
+        tween(this.charImage)
+            .to(0.3, {
+                color: c,
+            })
+            .start();
+        tween(this.getComponent(Sprite))
+            .to(0.3, {
+                color: c,
+            })
+            .start();
     }
 }

@@ -1,4 +1,4 @@
-import { _decorator, Component, Node } from 'cc';
+import { _decorator, Color, Component, Node } from 'cc';
 import { CharacterInput } from '../Character/CharacterInput';
 import { ConeGun } from '../Weapon/ConeGun';
 import { Character } from '../Character/Character';
@@ -30,7 +30,10 @@ export class Boss1Behavior extends Component {
     @property(ConeGun) coneGun18: ConeGun;
 
     @property private highHpThreshold: number = 0.66;
+    @property(Color) private highHpColor: Color = new Color();
     @property private lowHpThreshold: number = 0.33;
+    @property(Color) private mediumHpColor: Color = new Color();
+    @property(Color) private lowHpColor: Color = new Color();
     @property private shootInterval: number = 1.0;
     @property private patternSwitchInterval: number = 3.0;
     @property private normalMoveInterval: number = 3.0;
@@ -99,12 +102,22 @@ export class Boss1Behavior extends Component {
         const maxHp = this.character.Stats.maxHP;
         const currentHpRatio = this.character.Stats.hp / maxHp;
 
+        let newPhase = BossPhase.HIGH_HP;
+        let color = this.highHpColor;
         if (currentHpRatio > this.highHpThreshold) {
-            this.currentPhase = BossPhase.HIGH_HP;
+            newPhase = BossPhase.HIGH_HP;
+            color = this.highHpColor;
         } else if (currentHpRatio > this.lowHpThreshold) {
-            this.currentPhase = BossPhase.MEDIUM_HP;
+            newPhase = BossPhase.MEDIUM_HP;
+            color = this.mediumHpColor;
         } else {
-            this.currentPhase = BossPhase.LOW_HP;
+            newPhase = BossPhase.LOW_HP;
+            color = this.lowHpColor;
+        }
+
+        if (newPhase !== this.currentPhase) {
+            this.currentPhase = newPhase;
+            this.character.changeColor(color);
         }
     }
 
