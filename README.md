@@ -18,7 +18,7 @@ assets/
 │   │   ├── Character/    # Player & character logic
 │   │   ├── Boss/         # Boss behavior
 │   │   ├── Weapon/       # Gun & bullet systems
-│   │   ├── Config/       # Config loader
+│   │   ├── Config/       # Code defines (keybind,...)
 │   │   └── FX/          # Visual effects
 │   └── core/            # Core utilities
 ├── prefabs/             # Game prefabs
