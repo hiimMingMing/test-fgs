@@ -104,7 +104,7 @@
         "_value": false
       },
       "light-probe": {
-        "_value": true
+        "_value": false
       },
       "tiled-map": {
         "_value": false
@@ -130,7 +130,6 @@
       "gfx-webgl",
       "gfx-webgl2",
       "intersection-2d",
-      "light-probe",
       "marionette",
       "particle-2d",
       "physics-2d-box2d",
@@ -148,6 +147,7 @@
   "macroConfig": {
     "ENABLE_TRANSPARENT_CANVAS": true,
     "ENABLE_ANTIALIAS_FXAA": true,
-    "ENABLE_BLOOM": true
+    "ENABLE_BLOOM": true,
+    "CUSTOM_PIPELINE_NAME": ""
   }
 }
