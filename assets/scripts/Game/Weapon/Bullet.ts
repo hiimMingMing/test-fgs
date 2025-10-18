@@ -2,6 +2,7 @@ import {
     _decorator,
     Collider2D,
     Component,
+    Contact2DType,
     IPhysics2DContact,
     Node,
     RigidBody2D,
@@ -29,7 +30,7 @@ export class Bullet extends Component {
 
         const collider = this.getComponent(Collider2D);
         if (collider) {
-            collider.on('onBeginContact', this.onBeginContact, this);
+            collider.on(Contact2DType.BEGIN_CONTACT, this.onBeginContact, this);
         }
     }
 

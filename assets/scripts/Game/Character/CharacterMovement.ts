@@ -1,6 +1,5 @@
 import { _decorator, Component, Node, RigidBody2D, Vec2, Vec3 } from 'cc';
 import { CharacterInput } from './CharacterInput';
-import { CharacterDefines } from '../Config/GameDefine';
 import { CharacterStats } from './CharacterStats';
 
 const { ccclass, property, requireComponent } = _decorator;

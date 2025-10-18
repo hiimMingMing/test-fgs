@@ -5,6 +5,7 @@ import {
     CCInteger,
     Collider2D,
     Component,
+    Contact2DType,
     IPhysics2DContact,
 } from 'cc';
 import { CharacterStats } from './CharacterStats';
@@ -55,7 +56,7 @@ export class Character extends Component {
         if (this.Type == CharacterType.PLAYER) return;
         const collider = this.getComponent(BoxCollider2D);
         if (collider) {
-            collider.on('onBeginContact', this.onContact, this);
+            collider.on(Contact2DType.STAY_CONTACT, this.onContact, this);
         }
     }
 
@@ -92,7 +93,6 @@ export class Character extends Component {
         contact: IPhysics2DContact
     ) {
         const char = otherCollider.getComponent(Character);
-        console.log(char);
         if (char && char.Type !== this.Type) {
             char.hit(this.Stats.bodySlamDmg);
         }

@@ -11,7 +11,6 @@ import {
 } from 'cc';
 import { Keys } from '../Config/GameConfig';
 import Timer from '../../core/Timer';
-import { CharacterDefines } from '../Config/GameDefine';
 import { CharacterStats } from './CharacterStats';
 
 const { ccclass, property, requireComponent } = _decorator;

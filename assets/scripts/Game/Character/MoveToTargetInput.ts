@@ -19,7 +19,10 @@ export class MoveToTargetInput extends CharacterInput {
     onDestroy(): void {}
 
     update(deltaTime: number): void {
-        if (this.Target === null) return;
+        if (this.Target === null || this.Target.isValid == false) {
+            this.moveDirection.set(0, 0, 0);
+            return;
+        }
 
         this.moveDirection = Vec3.subtract(
             this.moveDirection,
