@@ -14,11 +14,13 @@ export class MoveToTargetInput extends CharacterInput {
     }
 
     start(): void {
-        this.target = GameObserver.Instance.getPlayer().node;
+        this.Target = GameObserver.Instance.getPlayer().node;
     }
     onDestroy(): void {}
 
     update(deltaTime: number): void {
+        if (this.Target === null) return;
+
         this.moveDirection = Vec3.subtract(
             this.moveDirection,
             this.Target.worldPosition,

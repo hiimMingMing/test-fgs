@@ -9,4 +9,5 @@ export class CharacterStats extends Component {
     @property public dashCooldown: number = 3;
     @property public dashSpeedMultiplier: number = 5;
     @property public bodySlamDmg: number = 0;
+    @property public iframeDuration: number = 1;
 }
