@@ -7,7 +7,20 @@ const { ccclass, property } = _decorator;
 export class GameObserver extends SingletonComponent<GameObserver>() {
     @property(Character) private player: Character;
 
+    private targetableObjects: Character[] = [];
+
     public getPlayer() {
         return this.player;
+    }
+
+    public addtargetableObjects(obj: Character) {
+        this.targetableObjects.push(obj);
+    }
+
+    public getTargetableObjects() {
+        this.targetableObjects = this.targetableObjects.filter(
+            (obj) => obj.isValid
+        );
+        return this.targetableObjects;
     }
 }

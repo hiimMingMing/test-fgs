@@ -12,6 +12,7 @@ import {
 import { CharacterStats } from './CharacterStats';
 import { CharacterMovement } from './CharacterMovement';
 import Timer from '../../core/Timer';
+import { GameObserver } from '../Observer/GameObserver';
 const { ccclass, property, requireComponent } = _decorator;
 
 export enum CharacterState {
@@ -62,6 +63,8 @@ export class Character extends Component {
         if (collider) {
             collider.on(Contact2DType.STAY_CONTACT, this.onContact, this);
         }
+
+        GameObserver.Instance.addtargetableObjects(this);
     }
 
     protected update(dt: number): void {

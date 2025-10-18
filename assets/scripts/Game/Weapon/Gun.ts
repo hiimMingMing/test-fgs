@@ -12,23 +12,28 @@ import {
     Vec2,
     Vec3,
 } from 'cc';
-import { Character } from '../Character/Character';
+import { Character, CharacterType } from '../Character/Character';
 import { GunStats } from './GunStats';
 import Timer from '../../core/Timer';
 import { Bullet } from './Bullet';
+import { GameObserver } from '../Observer/GameObserver';
 const { ccclass, property, requireComponent } = _decorator;
 
 @ccclass('Gun')
 @requireComponent(GunStats)
 export class Gun extends Component {
-    @property(Prefab) bulletPrefab: Prefab;
+    @property(Prefab) protected bulletPrefab: Prefab;
+    @property({
+        type: CharacterType,
+    })
+    public ownerType: CharacterType = CharacterType.PLAYER;
 
     protected rb: RigidBody2D;
     protected stats: GunStats;
 
-    private target: Character;
-    private targetsInRange: Character[] = [];
-    private fireTimer: Timer = new Timer();
+    protected target: Character;
+    protected targetsInRange: Character[] = [];
+    protected fireTimer: Timer = new Timer();
 
     get Stats() {
         return this.stats;
@@ -38,17 +43,11 @@ export class Gun extends Component {
         this.rb = this.getComponent(RigidBody2D);
         this.stats = this.getComponent(GunStats);
 
-        const collider = this.getComponent(CircleCollider2D);
-        if (collider) {
-            collider.on(Contact2DType.STAY_CONTACT, this.onBeginContact, this);
-            collider.on(Contact2DType.END_CONTACT, this.onEndContact, this);
-        }
-
-        collider.radius = this.Stats.range;
-        collider.apply();
-
         this.resetFireTimer();
-        this.schedule(this.findTarget, 0.1);
+        this.schedule(() => {
+            this.scanTargets();
+            this.findTarget();
+        }, 0.1);
     }
 
     protected update(dt: number): void {
@@ -80,6 +79,23 @@ export class Gun extends Component {
                 ).normalize()
             );
     }
+    scanTargets() {
+        const targets = GameObserver.Instance.getTargetableObjects();
+
+        targets.forEach((target) => {
+            if (target.Type === this.ownerType) return;
+            if (
+                Vec3.distance(
+                    target.node.worldPosition,
+                    this.node.worldPosition
+                ) <= this.Stats.range
+            ) {
+                this.addTargetInRange(target);
+            } else {
+                this.removeTargetInRang(target);
+            }
+        });
+    }
 
     findTarget() {
         if (this.targetsInRange.length === 0) {
@@ -108,29 +124,22 @@ export class Gun extends Component {
         this.target = closestChar;
     }
 
-    protected onBeginContact(
-        selfCollider: Collider2D,
-        otherCollider: Collider2D,
-        contact: IPhysics2DContact
-    ) {
-        if (!selfCollider.isValid || !otherCollider.isValid) return;
+    protected addTargetInRange(starget: Character) {
+        if (!starget.isValid) return;
 
-        const char = otherCollider.getComponent(Character);
-        if (char && this.targetsInRange.findIndex((c) => c === char) === -1) {
-            this.targetsInRange.push(char);
+        if (
+            starget &&
+            this.targetsInRange.findIndex((c) => c === starget) === -1
+        ) {
+            this.targetsInRange.push(starget);
         }
     }
 
-    protected onEndContact(
-        selfCollider: Collider2D,
-        otherCollider: Collider2D,
-        contact: IPhysics2DContact
-    ) {
-        if (!selfCollider.isValid || !otherCollider.isValid) return;
+    protected removeTargetInRang(starget: Character) {
+        if (!starget.isValid) return;
 
-        const char = otherCollider.getComponent(Character);
-        if (char) {
-            const index = this.targetsInRange.findIndex((c) => c === char);
+        if (starget) {
+            const index = this.targetsInRange.findIndex((c) => c === starget);
             if (index !== -1) {
                 this.targetsInRange.splice(index, 1);
             }
@@ -142,10 +151,14 @@ export class Gun extends Component {
         if (collider) {
             collider.off(
                 Contact2DType.BEGIN_CONTACT,
-                this.onBeginContact,
+                this.addTargetInRange,
                 this
             );
-            collider.off(Contact2DType.END_CONTACT, this.onBeginContact, this);
+            collider.off(
+                Contact2DType.END_CONTACT,
+                this.addTargetInRange,
+                this
+            );
         }
     }
 }
