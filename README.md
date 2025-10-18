@@ -15,13 +15,12 @@ assets/
 │       ├── PlayerBullet.json
 │       └── ...
 ├── scripts/
-│   ├── Game/
-│   │   ├── Character/    # Player & character logic
-│   │   ├── Boss/         # Boss behavior
-│   │   ├── Weapon/       # Gun & bullet systems
-│   │   ├── Config/       # Code defines (keybind,...)
-│   │   └── FX/          # Visual effects
-│   └── core/            # Core utilities
+│   └──  Game/
+│       ├── Character/    # Player & character logic
+│       ├── Boss/         # Boss behavior
+│       ├── Weapon/       # Gun & bullet systems
+│       ├── Config/       # Code defines (keybind,...)
+│       └── FX/          # Visual effects
 ├── prefabs/             # Game prefabs
 │   └── Game/            # All Prefabs
 ```
