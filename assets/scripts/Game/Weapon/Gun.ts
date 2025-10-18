@@ -37,7 +37,6 @@ export class Gun extends Component {
     protected fireTimer: Timer = new Timer();
 
     protected bulletPool: Node[] = [];
-    protected bulletPoolSize = 100;
 
     get Stats() {
         return this.stats;
@@ -85,8 +84,8 @@ export class Gun extends Component {
     protected spawnBullet(): Node {
         const inactiveBullet = this.bulletPool.find((bullet) => !bullet.active);
         if (inactiveBullet) {
-            inactiveBullet.active = true;
             inactiveBullet.setWorldPosition(this.node.worldPosition);
+            inactiveBullet.active = true;
             return inactiveBullet;
         }
 
