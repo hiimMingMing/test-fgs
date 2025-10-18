@@ -15,6 +15,7 @@ import Timer from '../../core/Timer';
 import { GameObserver } from '../Observer/GameObserver';
 import { CharacterState, CharacterType } from '../Config/GameDefine';
 import { CameraShake } from '../../core/CameraShake';
+import { GameManager } from '../GameManager';
 const { ccclass, property, requireComponent } = _decorator;
 
 @ccclass('Character')
@@ -32,6 +33,7 @@ export class Character extends Component {
     private charStats: CharacterStats;
     private state: CharacterState = CharacterState.ALIVE;
     private iframeTimer: Timer = new Timer();
+    private onDieCallbacks: Function[] = [];
 
     get Stats() {
         return this.charStats;
@@ -86,8 +88,18 @@ export class Character extends Component {
         return !this.iframeTimer.IsDone();
     }
 
+    public addOnDieCallback(cb: Function) {
+        this.onDieCallbacks.push(cb);
+    }
+
     private die() {
         this.state = CharacterState.DEAD;
+
+        this.onDieCallbacks.forEach(cb => cb());
+
+        if (this.characterType === CharacterType.PLAYER)
+            GameManager.Instance.end();
+
         this.node.destroy();
     }
 

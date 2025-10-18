@@ -3,6 +3,7 @@ import { CharacterInput } from '../Character/CharacterInput';
 import { ConeGun } from '../Weapon/ConeGun';
 import { Character } from '../Character/Character';
 import Timer from '../../core/Timer';
+import { GameManager } from '../GameManager';
 const { ccclass, property, requireComponent } = _decorator;
 
 enum BossPhase {
@@ -48,6 +49,8 @@ export class Boss1Behavior extends Component {
     protected onLoad(): void {
         this.character = this.getComponent(Character);
         this.characterInput = this.getComponent(CharacterInput);
+
+        this.character.addOnDieCallback(this.endGame);
 
         this.shootTimer.SetDuration(this.shootInterval);
         this.patternSwitchTimer.SetDuration(this.patternSwitchInterval);
@@ -152,5 +155,9 @@ export class Boss1Behavior extends Component {
                 this.coneGun18.shoot();
             }
         }
+    }
+
+    endGame() {
+        GameManager.Instance.end();
     }
 }

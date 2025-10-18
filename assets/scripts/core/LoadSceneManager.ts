@@ -10,7 +10,7 @@ import {
 } from 'cc';
 import { SendTrackingAndExit } from '../core/Utils';
 import EventManager from '../core/EventManager';
-import {  EventType, ActionSystem } from '../Defines';
+import { EventType, ActionSystem } from '../Defines';
 import { Fade } from './Fade';
 const { ccclass, property } = _decorator;
 
@@ -53,7 +53,7 @@ export class LoadSceneManager extends Component {
     loadScene(sceneName: string) {
         this.fadeScreen.in(() => {
             this.fadeScreen.out(() => {
-                this.loadingInfo.active = true;
+                // this.loadingInfo.active = true;
                 this.lostConnection.active = false;
                 this.buttonClose.active = false;
 
@@ -68,10 +68,6 @@ export class LoadSceneManager extends Component {
                     this.OnProgressing.bind(this),
                     this.OnSceneLaunched.bind(this)
                 );
-                assetManager.downloader.on('error', (error: any) => {
-                    this.isLoadFailed = true;
-                    // AddLogText("downloader error: " + error);
-                });
 
                 this.StartTimeout();
 
