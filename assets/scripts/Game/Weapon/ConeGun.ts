@@ -21,7 +21,7 @@ export class ConeGun extends Gun {
         const stepAngleDeg = threadAngleDeg / (bulletCount - 1);
 
         for (let i = 0; i < (this.Stats as ConeGunStats).bulletNumber; i++) {
-            const newBullet = instantiate(this.bulletPrefab);
+            const newBullet = this.spawnBullet();
             newBullet.setParent(this.node);
             newBullet.setWorldPosition(this.node.worldPosition);
 

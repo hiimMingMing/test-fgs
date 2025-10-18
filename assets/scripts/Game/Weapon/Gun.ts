@@ -36,6 +36,9 @@ export class Gun extends Component {
     protected targetsInRange: Character[] = [];
     protected fireTimer: Timer = new Timer();
 
+    protected bulletPool: Node[] = [];
+    protected bulletPoolSize = 100;
+
     get Stats() {
         return this.stats;
     }
@@ -67,9 +70,7 @@ export class Gun extends Component {
         if (!this.target) return;
         if (!this.target.isValid) return;
 
-        const newBullet = instantiate(this.bulletPrefab);
-        newBullet.setParent(this.node);
-        newBullet.setWorldPosition(this.node.worldPosition);
+        const newBullet = this.spawnBullet();
         newBullet
             .getComponent(Bullet)
             .init(
@@ -79,6 +80,21 @@ export class Gun extends Component {
                     this.node.worldPosition
                 ).normalize()
             );
+    }
+
+    protected spawnBullet(): Node {
+        const inactiveBullet = this.bulletPool.find((bullet) => !bullet.active);
+        if (inactiveBullet) {
+            inactiveBullet.active = true;
+            inactiveBullet.setWorldPosition(this.node.worldPosition);
+            return inactiveBullet;
+        }
+
+        const newBullet = instantiate(this.bulletPrefab);
+        newBullet.setParent(this.node);
+        newBullet.setWorldPosition(this.node.worldPosition);
+        this.bulletPool.push(newBullet);
+        return newBullet;
     }
 
     scanTargets() {
