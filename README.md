@@ -2,10 +2,11 @@
 
 ## Project Structure
 
-All my work in this test are in the folders below. All other codes is my template from a long long long time ago :D
+All my works in this test are in the folders below. All other codes is my template from a long long long time ago :D
 
 ```
 assets/
+├── particles/            # Plist files
 ├── resources/
 │   └── config/           # JSON configuration files
 │       ├── Character1.json
