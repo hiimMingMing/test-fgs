@@ -29,4 +29,5 @@ assets/
 ## Configuration System
 
 The game uses a modular JSON configuration system. You can balance the game by editing JSON files directly without opening Cocos Creator.
+But if you want to test, you still need to open it anyway :V
 It takes me a lot of time to setup (T_T) please have mercy
