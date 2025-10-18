@@ -14,6 +14,7 @@ import { CharacterMovement } from './CharacterMovement';
 import Timer from '../../core/Timer';
 import { GameObserver } from '../Observer/GameObserver';
 import { CharacterState, CharacterType } from '../Config/GameDefine';
+import { CameraShake } from '../../core/CameraShake';
 const { ccclass, property, requireComponent } = _decorator;
 
 @ccclass('Character')
@@ -71,6 +72,10 @@ export class Character extends Component {
         }
 
         this.updateHPVisual();
+
+        if (this.characterType === CharacterType.PLAYER) {
+            CameraShake.Instance.shake(10, 0.2);
+        }
     }
 
     updateHPVisual() {
