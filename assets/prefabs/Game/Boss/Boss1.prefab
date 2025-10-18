@@ -404,7 +404,7 @@
     "dashCooldown": 0,
     "dashSpeedMultiplier": 0,
     "bodySlamDmg": 10,
-    "iframeDuration": 1,
+    "iframeDuration": 0,
     "_id": ""
   },
   {
@@ -423,7 +423,7 @@
     "__prefab": {
       "__id__": 23
     },
-    "characterType": 0,
+    "characterType": 1,
     "_id": ""
   },
   {

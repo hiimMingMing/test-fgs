@@ -24,17 +24,15 @@ export class Bullet extends Component {
         return this.stats;
     }
 
-    protected onLoad(): void {
+    public init(dir: Vec3) {
         this.rb = this.getComponent(RigidBody2D);
         this.stats = this.getComponent(BulletStats);
 
         const collider = this.getComponent(Collider2D);
         if (collider) {
-            collider.on(Contact2DType.BEGIN_CONTACT, this.onBeginContact, this);
+            collider.on(Contact2DType.STAY_CONTACT, this.onBeginContact, this);
         }
-    }
 
-    public init(dir: Vec3) {
         this.rb.linearVelocity = new Vec2(
             dir.x * this.Stats.moveSpeed,
             dir.y * this.Stats.moveSpeed
@@ -46,6 +44,8 @@ export class Bullet extends Component {
         otherCollider: Collider2D,
         contact: IPhysics2DContact
     ) {
+        if (!selfCollider.isValid || !otherCollider.isValid) return;
+
         const char = otherCollider.getComponent(Character);
         if (char) {
             char.hit(this.Stats.damage);
@@ -55,5 +55,16 @@ export class Bullet extends Component {
 
     protected hit(): void {
         this.node.destroy();
+    }
+
+    protected onDestroy(): void {
+        const collider = this.getComponent(Collider2D);
+        if (collider) {
+            collider.off(
+                Contact2DType.BEGIN_CONTACT,
+                this.onBeginContact,
+                this
+            );
+        }
     }
 }

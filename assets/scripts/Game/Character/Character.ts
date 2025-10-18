@@ -7,6 +7,7 @@ import {
     Component,
     Contact2DType,
     IPhysics2DContact,
+    Sprite,
 } from 'cc';
 import { CharacterStats } from './CharacterStats';
 import { CharacterMovement } from './CharacterMovement';
@@ -34,6 +35,9 @@ export class Character extends Component {
     })
     public characterType: CharacterType = CharacterType.PLAYER;
 
+    @property(Sprite)
+    charImage: Sprite;
+
     private charStats: CharacterStats;
     private state: CharacterState = CharacterState.ALIVE;
     private iframeTimer: Timer = new Timer();
@@ -54,7 +58,7 @@ export class Character extends Component {
         this.charStats = this.getComponent(CharacterStats);
 
         if (this.Type == CharacterType.PLAYER) return;
-        const collider = this.getComponent(BoxCollider2D);
+        const collider = this.getComponent(Collider2D);
         if (collider) {
             collider.on(Contact2DType.STAY_CONTACT, this.onContact, this);
         }
@@ -67,8 +71,6 @@ export class Character extends Component {
     public hit(dmg: number) {
         if (this.isIframing()) return;
         if (this.state === CharacterState.DEAD) return;
-
-        console.log('Hit ', dmg);
 
         this.iframeTimer.SetDuration(this.Stats.iframeDuration);
 
@@ -92,9 +94,18 @@ export class Character extends Component {
         otherCollider: Collider2D,
         contact: IPhysics2DContact
     ) {
+        if (!selfCollider.isValid || !otherCollider.isValid) return;
+
         const char = otherCollider.getComponent(Character);
         if (char && char.Type !== this.Type) {
             char.hit(this.Stats.bodySlamDmg);
+        }
+    }
+
+    protected onDestroy(): void {
+        const collider = this.getComponent(Collider2D);
+        if (collider) {
+            collider.off(Contact2DType.STAY_CONTACT, this.onContact, this);
         }
     }
 }

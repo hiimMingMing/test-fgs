@@ -19,22 +19,13 @@
     "_children": [
       {
         "__id__": 2
+      },
+      {
+        "__id__": 8
       }
     ],
     "_active": true,
     "_components": [
-      {
-        "__id__": 8
-      },
-      {
-        "__id__": 10
-      },
-      {
-        "__id__": 12
-      },
-      {
-        "__id__": 14
-      },
       {
         "__id__": 16
       },
@@ -46,10 +37,22 @@
       },
       {
         "__id__": 22
+      },
+      {
+        "__id__": 24
+      },
+      {
+        "__id__": 26
+      },
+      {
+        "__id__": 28
+      },
+      {
+        "__id__": 30
       }
     ],
     "_prefab": {
-      "__id__": 24
+      "__id__": 32
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -214,6 +217,118 @@
     "nestedPrefabInstanceRoots": null
   },
   {
+    "__type__": "cc.Node",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 1
+    },
+    "_prefab": {
+      "__id__": 9
+    },
+    "__editorExtras__": {}
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 8
+    },
+    "asset": {
+      "__uuid__": "c2ddecc9-fbfe-42c2-a54b-021d52d53f9e",
+      "__expectedType__": "cc.Prefab"
+    },
+    "fileId": "56YEjvnCpL27y8JEH8RFbU",
+    "instance": {
+      "__id__": 10
+    },
+    "targetOverrides": null
+  },
+  {
+    "__type__": "cc.PrefabInstance",
+    "fileId": "9eraFvWdZK/LFkJUzRRFme",
+    "prefabRootNode": {
+      "__id__": 1
+    },
+    "mountedChildren": [],
+    "mountedComponents": [],
+    "propertyOverrides": [
+      {
+        "__id__": 11
+      },
+      {
+        "__id__": 13
+      },
+      {
+        "__id__": 14
+      },
+      {
+        "__id__": 15
+      }
+    ],
+    "removedComponents": []
+  },
+  {
+    "__type__": "CCPropertyOverrideInfo",
+    "targetInfo": {
+      "__id__": 12
+    },
+    "propertyPath": [
+      "_name"
+    ],
+    "value": "PlayerGun"
+  },
+  {
+    "__type__": "cc.TargetInfo",
+    "localID": [
+      "56YEjvnCpL27y8JEH8RFbU"
+    ]
+  },
+  {
+    "__type__": "CCPropertyOverrideInfo",
+    "targetInfo": {
+      "__id__": 12
+    },
+    "propertyPath": [
+      "_lpos"
+    ],
+    "value": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    }
+  },
+  {
+    "__type__": "CCPropertyOverrideInfo",
+    "targetInfo": {
+      "__id__": 12
+    },
+    "propertyPath": [
+      "_lrot"
+    ],
+    "value": {
+      "__type__": "cc.Quat",
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "w": 1
+    }
+  },
+  {
+    "__type__": "CCPropertyOverrideInfo",
+    "targetInfo": {
+      "__id__": 12
+    },
+    "propertyPath": [
+      "_euler"
+    ],
+    "value": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    }
+  },
+  {
     "__type__": "cc.UITransform",
     "_name": "",
     "_objFlags": 0,
@@ -222,7 +337,7 @@
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 9
+      "__id__": 17
     },
     "_contentSize": {
       "__type__": "cc.Size",
@@ -249,7 +364,7 @@
     },
     "_enabled": false,
     "__prefab": {
-      "__id__": 11
+      "__id__": 19
     },
     "_customMaterial": null,
     "_srcBlendFactor": 2,
@@ -293,7 +408,7 @@
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 13
+      "__id__": 21
     },
     "enabledContactListener": true,
     "bullet": false,
@@ -326,7 +441,7 @@
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 15
+      "__id__": 23
     },
     "tag": 0,
     "_group": 2,
@@ -355,10 +470,10 @@
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 17
+      "__id__": 25
     },
     "characterInput": {
-      "__id__": 18
+      "__id__": 26
     },
     "_id": ""
   },
@@ -375,7 +490,7 @@
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 19
+      "__id__": 27
     },
     "_id": ""
   },
@@ -393,7 +508,7 @@
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 21
+      "__id__": 29
     },
     "hp": 50,
     "moveSpeed": 20,
@@ -418,7 +533,7 @@
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 23
+      "__id__": 31
     },
     "characterType": 0,
     "_id": ""
@@ -436,6 +551,12 @@
       "__id__": 0
     },
     "fileId": "1coxhdmqJE8bZpP0NFArwS",
-    "targetOverrides": []
+    "instance": null,
+    "targetOverrides": [],
+    "nestedPrefabInstanceRoots": [
+      {
+        "__id__": 8
+      }
+    ]
   }
 ]

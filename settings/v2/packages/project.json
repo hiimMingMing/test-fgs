@@ -11,12 +11,14 @@
   "physics": {
     "collisionMatrix": {
       "0": 3,
-      "1": 109,
-      "2": 82,
-      "3": 82,
+      "1": 365,
+      "2": 210,
+      "3": 210,
       "4": 76,
       "5": 66,
-      "6": 62
+      "6": 62,
+      "7": 12,
+      "8": 2
     },
     "collisionGroups": [
       {
@@ -42,6 +44,14 @@
       {
         "index": 6,
         "name": "Boundary"
+      },
+      {
+        "index": 7,
+        "name": "PlayerWeapon"
+      },
+      {
+        "index": 8,
+        "name": "BossWeapon"
       }
     ],
     "allowSleep": false,
