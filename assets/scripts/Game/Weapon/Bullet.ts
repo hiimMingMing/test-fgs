@@ -4,14 +4,18 @@ import {
     Component,
     Contact2DType,
     IPhysics2DContact,
+    misc,
     Node,
     RigidBody2D,
+    Sprite,
     Vec2,
     Vec3,
 } from 'cc';
 import { BulletStats } from './BulletStats';
 import { CharacterStats } from '../Character/CharacterStats';
 import { Character } from '../Character/Character';
+import { FXManager, FXType } from '../FX/FXManager';
+import { BulletImpactFX } from '../FX/BulletImpactFX';
 const { ccclass, property, requireComponent } = _decorator;
 
 @ccclass('Bullet')
@@ -19,12 +23,14 @@ const { ccclass, property, requireComponent } = _decorator;
 export class Bullet extends Component {
     protected rb: RigidBody2D;
     protected stats: BulletStats;
+    protected image: Sprite;
 
     get Stats() {
         return this.stats;
     }
 
     protected onLoad(): void {
+        this.image = this.getComponent(Sprite);
         const collider = this.getComponent(Collider2D);
         if (collider) {
             collider.on(Contact2DType.BEGIN_CONTACT, this.onBeginContact, this);
@@ -59,6 +65,17 @@ export class Bullet extends Component {
     }
 
     protected hit(): void {
+        const angle = misc.radiansToDegrees(
+            Math.atan2(this.rb.linearVelocity.y, this.rb.linearVelocity.x)
+        );
+        console.log(angle);
+
+        const fx = FXManager.Instance.play(
+            FXType.IMPACT,
+            this.node.worldPosition,
+            angle
+        );
+        fx.getComponent(BulletImpactFX).setColor(this.image.color);
         this.rb.enabled = false;
         this.scheduleOnce(() => {
             this.node.active = false;
